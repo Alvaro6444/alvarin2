@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>🎂 Feliz Cumpleaños WERA 🎂</title>
+  <style>
+    body {
+      margin: 0;
+      font-family: 'Comic Sans MS', cursive;
+      background: linear-gradient(135deg, #ff9a9e, #fad0c4, #fbc2eb);
+      text-align: center;
+      color: #fff;
+    }
+    .pantalla-inicio, .tarjeta {
+      display: none;
+      height: 100vh;
+      justify-content: center;
+      align-items: center;
+      flex-direction: column;
+    }
+    .pantalla-inicio.active {
+      display: flex;
+    }
+    .tarjeta.active {
+      display: flex;
+    }
+    h1 {
+      font-size: 2.5em;
+      text-shadow: 2px 2px 8px #ff69b4;
+    }
+    p {
+      font-size: 1.5em;
+      max-width: 600px;
+    }
+    button {
+      padding: 15px 30px;
+      font-size: 1.3em;
+      border-radius: 25px;
+      background-color: #ff69b4;
+      color: white;
+      border: none;
+      cursor: pointer;
+      margin-top: 20px;
+      transition: 0.3s;
+    }
+    button:hover {
+      background-color: #ff1493;
+      transform: scale(1.1);
+    }
+    img.gif-cat {
+      width: 220px;
+      margin-top: 25px;
+    }
+  </style>
+</head>
+<body>
+  <!-- Pantalla de inicio -->
+  <div class="pantalla-inicio active" id="inicio">
+    <h1>🎉  🎉</h1>
+    <p>Presiona el botón para abrir tu sorpresa 💝</p>
+    <button onclick="mostrarTarjeta()">presionar</button>
+  </div>
+
+  <!-- Tarjeta de cumpleaños -->
+  <div class="tarjeta" id="tarjeta">
+    <h1>🎂 ¡Feliz Cumpleaños, WERA! 🎂</h1>
+    <p>Espero que estes tan orgullosa de ti misma como yo lo estoy 💖<br>
+       No soy una persona muy expresiva pero quiero que sepas que te quiero mucho💕</p>
+    <img class="gif-cat" src="https://media.tenor.com/fxG8Tq0uTPAAAAAC/jumping-cat.gif" alt="Gatito saltando" />
+  </div>
+
+  <!-- Música -->
+  <audio id="song" loop>
+  <source src="are-you-bored-yet.mp3" type="audio/mpeg">
+  Tu navegador no soporta audio.
+</audio>
+
+
+  <script>
+    function mostrarTarjeta() {
+      document.getElementById('inicio').classList.remove('active');
+      document.getElementById('tarjeta').classList.add('active');
+
+      // Reproducir música junto con la sorpresa
+      const song = document.getElementById('song');
+      song.play().catch(error => {
+        console.log("El navegador bloqueó la reproducción automática. El usuario debe tocar la pantalla.");
+      });
+    }
+  </script>
+</body>
+</html>
+ 
